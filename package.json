@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:ng": "cd ngclient && npx ng build",
+    "build:ng": "cd ng-client && npx ng build",
     "build:all": "rimraf ./dist && npm run build:ng",
-    "copy:ng": "cp -a ./ngclient/dist/ngclient/. ./dist",
+    "copy:ng": "cp -a ./ng-client/dist/ngclient/. ./dist",
     "copy:admin": "cp -a ./netlify-cms/. ./dist/admin",
     "copy:content": "cp -a ./site/. ./dist/site",
     "copy:all": "npm run copy:ng && npm run copy:admin && npm run copy:content",
