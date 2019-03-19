@@ -8,7 +8,7 @@ collections: # A list of collections the CMS should be able to edit
   - name: "product" # Used in routes, ie.: /admin/collections/:slug/edit
     label: "Products" # Used in the UI, ie.: "New Post"
     label_singular: "Product"
-    folder: "site/content/pages" # The path to the folder where the documents are stored
+    folder: "site/content/pages/products" # The path to the folder where the documents are stored
     extension: "json"
     create: true # Allow users to create new documents in this collection
     slug: "{{year}}-{{month}}-{{day}}_{{slug}}"
@@ -21,7 +21,7 @@ collections: # A list of collections the CMS should be able to edit
   - name: "pages"
     label: "Pages"
     files:
-      - file: "site/content/pages/home.josn"
+      - file: "site/content/pages/home.json"
         label: "Home Page"
         name: "home"
         fields:
