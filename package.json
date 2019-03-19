@@ -5,13 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:ng": "cd ng-client && npx ng build",
+    "install-ng-deps": "cd ng-client && npm ci",
+    "build:ng": "cd ng-client && npx ng build --prod",
     "build:all": "rimraf ./dist && npm run build:ng",
+    "build:all:ci": "rimraf ./dist && npm run install-ng-deps && npm run build:ng",
     "copy:ng": "cp -a ./ng-client/dist/ngclient/. ./dist",
     "copy:admin": "cp -a ./netlify-cms/. ./dist/admin",
     "copy:content": "cp -a ./site/. ./dist/site",
     "copy:all": "npm run copy:ng && npm run copy:admin && npm run copy:content",
-    "build": "npm run build:all && npm run copy:all"
+    "build": "npm run build:all && npm run copy:all",
+    "build:ci": "npm run build:all:ci && npm run copy:all"
   },
   "author": "michael.wittwer@shiftcode.ch",
   "license": "ISC",
