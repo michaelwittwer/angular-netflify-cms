@@ -96,6 +96,19 @@ var AppComponent = /** @class */ (function () {
     function AppComponent() {
         this.title = 'ngclient';
     }
+    AppComponent.prototype.ngOnInit = function () {
+        // TODO add server agnostic
+        var win = window;
+        if (win && win.netlifyIdentity) {
+            win.netlifyIdentity.on('init', function (user) {
+                if (!user) {
+                    win.netlifyIdentity.on('login', function () {
+                        win.location.href = '/admin/';
+                    });
+                }
+            });
+        }
+    };
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-root',
